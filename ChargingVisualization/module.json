@@ -1,0 +1,11 @@
+{
+  "id": "{C3E4F5A6-7B8C-49D0-9E1F-2A3B4C5D6E7F}",
+  "name": "ChargingVisualization",
+  "type": 3,
+  "vendor": "MLenhart",
+  "aliases": ["SolarFlow Ladevisualisierung", "SolarFlow Energiefluss"],
+  "parentRequirements": [],
+  "childRequirements": [],
+  "implemented": [],
+  "prefix": "SFV"
+}
