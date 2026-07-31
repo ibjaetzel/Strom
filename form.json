@@ -1,0 +1,209 @@
+{
+    "elements": [
+        {
+            "type": "ExpansionPanel",
+            "caption": "PV-Anlagen",
+            "items": [
+                {
+                    "type": "SelectVariable",
+                    "name": "PVSouth",
+                    "caption": "PV Süd Leistung (W)"
+                },
+                {
+                    "type": "SelectVariable",
+                    "name": "PVWest",
+                    "caption": "PV West Leistung (W)"
+                }
+            ]
+        },
+        {
+            "type": "ExpansionPanel",
+            "caption": "Hausnetz / Netz",
+            "items": [
+                {
+                    "type": "Label",
+                    "caption": "Netzbezug gesamt wird aus L1 + L2 + L3 berechnet. Positiv = Bezug, negativ = Einspeisung."
+                },
+                {
+                    "type": "SelectVariable",
+                    "name": "L1",
+                    "caption": "L1 Leistung (W)"
+                },
+                {
+                    "type": "SelectVariable",
+                    "name": "L2",
+                    "caption": "L2 Leistung (W)"
+                },
+                {
+                    "type": "SelectVariable",
+                    "name": "L3",
+                    "caption": "L3 Leistung (W)"
+                }
+            ]
+        },
+        {
+            "type": "ExpansionPanel",
+            "caption": "Hausbatterie & Wechselrichter",
+            "items": [
+                {
+                    "type": "SelectVariable",
+                    "name": "BatteryPower",
+                    "caption": "Batterie-WR Leistung (W, positiv = Entladen ins Haus)"
+                },
+                {
+                    "type": "SelectVariable",
+                    "name": "BatterySoC",
+                    "caption": "Hausbatterie Ladezustand (%)"
+                }
+            ]
+        },
+        {
+            "type": "ExpansionPanel",
+            "caption": "Wallbox",
+            "items": [
+                {
+                    "type": "SelectVariable",
+                    "name": "WallboxPower",
+                    "caption": "Wallbox Leistung (W)"
+                },
+                {
+                    "type": "SelectVariable",
+                    "name": "WallboxModeVariable",
+                    "caption": "Variable Wallbox-Modus (0=Kein Laden, 1=Netzladen, 2=PV-Überschuss)"
+                },
+                {
+                    "type": "SelectVariable",
+                    "name": "WallboxSocMinVariable",
+                    "caption": "Variable Wallbox-Freigabe ab Hausbatterie-SOC (%)"
+                }
+            ]
+        },
+        {
+            "type": "ExpansionPanel",
+            "caption": "Hausbatterie-Netzladung",
+            "items": [
+                {
+                    "type": "SelectVariable",
+                    "name": "HomeGridChargeEnabledVariable",
+                    "caption": "Variable Netzladen Hausbatterie aktiv (Boolean)"
+                },
+                {
+                    "type": "SelectVariable",
+                    "name": "HomeWindow1StartVariable",
+                    "caption": "Zeitfenster 1 Start (HH:MM)"
+                },
+                {
+                    "type": "SelectVariable",
+                    "name": "HomeWindow1EndVariable",
+                    "caption": "Zeitfenster 1 Ende (HH:MM)"
+                },
+                {
+                    "type": "SelectVariable",
+                    "name": "HomeWindow1SocVariable",
+                    "caption": "Zeitfenster 1 Ziel-SOC (%)"
+                },
+                {
+                    "type": "SelectVariable",
+                    "name": "HomeWindow2StartVariable",
+                    "caption": "Zeitfenster 2 Start (HH:MM)"
+                },
+                {
+                    "type": "SelectVariable",
+                    "name": "HomeWindow2EndVariable",
+                    "caption": "Zeitfenster 2 Ende (HH:MM)"
+                },
+                {
+                    "type": "SelectVariable",
+                    "name": "HomeWindow2SocVariable",
+                    "caption": "Zeitfenster 2 Ziel-SOC (%)"
+                }
+            ]
+        },
+        {
+            "type": "ExpansionPanel",
+            "caption": "Verbrauchergruppen (optional, paarweise)",
+            "items": [
+                {
+                    "type": "List",
+                    "name": "Groups",
+                    "caption": "Verbrauchergruppen",
+                    "rowCount": 10,
+                    "add": true,
+                    "delete": true,
+                    "columns": [
+                        {
+                            "caption": "Name",
+                            "name": "Name",
+                            "width": "180px",
+                            "add": "",
+                            "edit": {
+                                "type": "ValidationTextBox"
+                            }
+                        },
+                        {
+                            "caption": "Leistungs-Variable",
+                            "name": "VariableID",
+                            "width": "auto",
+                            "add": 0,
+                            "edit": {
+                                "type": "SelectVariable"
+                            }
+                        },
+                        {
+                            "caption": "Tagesverbrauch (optional)",
+                            "name": "DailyVariableID",
+                            "width": "auto",
+                            "add": 0,
+                            "edit": {
+                                "type": "SelectVariable"
+                            }
+                        },
+                        {
+                            "caption": "Icon",
+                            "name": "Icon",
+                            "width": "140px",
+                            "add": "plug",
+                            "edit": {
+                                "type": "SelectIcon"
+                            }
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "type": "ExpansionPanel",
+            "caption": "Statistik (optional)",
+            "items": [
+                {
+                    "type": "SelectVariable",
+                    "name": "DayProduction",
+                    "caption": "Tagesproduktion gesamt"
+                },
+                {
+                    "type": "SelectVariable",
+                    "name": "WeekProduction",
+                    "caption": "Wochenproduktion gesamt"
+                },
+                {
+                    "type": "SelectVariable",
+                    "name": "DayGridImport",
+                    "caption": "Tagesverbrauch Netzbezug"
+                },
+                {
+                    "type": "SelectVariable",
+                    "name": "WeekGridImport",
+                    "caption": "Wochenverbrauch Netzbezug gesamt"
+                }
+            ]
+        }
+    ],
+    "actions": [
+        {
+            "type": "Button",
+            "caption": "Werte jetzt aktualisieren",
+            "onClick": "SFV_Refresh($id);"
+        }
+    ],
+    "status": []
+}
